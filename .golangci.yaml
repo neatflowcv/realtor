@@ -7,6 +7,11 @@ linters:
     - nlreturn
     - wsl
     - wrapcheck
+    - varnamelen
+    - prealloc
+    - godox
+    - mnd
+    - canonicalheader
   settings:
     revive:
       rules:
