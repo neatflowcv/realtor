@@ -1,9 +1,20 @@
 package flow
 
-type Service struct{}
+import (
+	"github.com/neatflowcv/realtor/internal/pkg/domain"
+	"github.com/neatflowcv/realtor/internal/pkg/repository"
+)
 
-func NewService() *Service {
-	return &Service{}
+type Service struct {
+	repository repository.Repository
 }
 
-// ListRealties
+func NewService(repository repository.Repository) *Service {
+	return &Service{
+		repository: repository,
+	}
+}
+
+func (s *Service) ListRealties() ([]*domain.Realty, error) {
+	return s.repository.ListRealties()
+}

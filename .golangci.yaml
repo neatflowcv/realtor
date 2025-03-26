@@ -1,0 +1,21 @@
+version: "2"
+linters:
+  default: all
+  disable:
+    - tagliatelle
+    - depguard
+    - nlreturn
+    - wsl
+    - wrapcheck
+    - varnamelen
+    - prealloc
+    - godox
+    - mnd
+    - canonicalheader
+  settings:
+    revive:
+      rules:
+        - name: exported
+          disabled: true
+run:
+  timeout: 5m

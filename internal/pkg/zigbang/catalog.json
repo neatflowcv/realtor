@@ -1,0 +1,368 @@
+{
+    "localCode": "11680106",
+    "count": 646,
+    "list": [
+        {
+            "areaHoId": 14091039,
+            "tranType": "trade",
+            "areaDanjiId": 68580,
+            "areaDanjiName": "대치푸르지오써밋",
+            "danjiRoomTypeId": 332354,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 360000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "77A",
+                "p": "23A"
+            },
+            "sizeContractM2": 77.6575,
+            "sizeM2": 59.9845,
+            "dong": "101동",
+            "floor": "4",
+            "itemTitle": "학원가도보5분이내,최상의컨디션",
+            "zzimCount": 0,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/vp/coalition-realestate/image/1282/4273836886ea9b480325473329410cf2982e813628b53ca953b25d3c85013079.jpeg",
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 149947
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 11886889,
+            "tranType": "charter",
+            "areaDanjiId": 7691,
+            "areaDanjiName": "대치동대우아이빌멤버스",
+            "danjiRoomTypeId": 193541,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 23000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "63",
+                "p": "19"
+            },
+            "sizeContractM2": 63.82,
+            "sizeM2": 51.03,
+            "dong": "1동",
+            "floor": "10",
+            "itemTitle": "내부 컨디션 최상, 선릉역 도보 6분",
+            "zzimCount": 1,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/vp/coalition-realestate/image/1282/9b8c72039c825544f90cab0448d7f0f9c0061091e678386c7cd30aaaa55ebcb3.jpeg",
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 145867
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 13463048,
+            "tranType": "rental",
+            "areaDanjiId": 33294,
+            "areaDanjiName": "래미안대치팰리스2단지",
+            "danjiRoomTypeId": 91724,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 170000,
+            "rentMin": 180,
+            "roomTypeTitle": {
+                "m2": "122C",
+                "p": "37C"
+            },
+            "sizeContractM2": 122.74,
+            "sizeM2": 91.93,
+            "dong": "203동",
+            "floor": "17",
+            "itemTitle": "대치역 초역세권, 학원가 인접",
+            "zzimCount": 0,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/ic/floorplan/33294/91724/4077cd5cf3ed477dbfb7800d6be61606.png",
+            "isFloorPlanThumbnail": true,
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 145347
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 13463048,
+            "tranType": "charter",
+            "areaDanjiId": 33294,
+            "areaDanjiName": "래미안대치팰리스2단지",
+            "danjiRoomTypeId": 91724,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 220000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "122C",
+                "p": "37C"
+            },
+            "sizeContractM2": 122.74,
+            "sizeM2": 91.93,
+            "dong": "203동",
+            "floor": "17",
+            "itemTitle": "대치역 초역세권, 학원가 인접",
+            "zzimCount": 0,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/ic/floorplan/33294/91724/4077cd5cf3ed477dbfb7800d6be61606.png",
+            "isFloorPlanThumbnail": true,
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 145346
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 10546630,
+            "tranType": "trade",
+            "areaDanjiId": 27373,
+            "areaDanjiName": "동민맥스빌(A동)",
+            "danjiRoomTypeId": 235814,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 180000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "109C",
+                "p": "33C"
+            },
+            "sizeContractM2": 109.18,
+            "sizeM2": 84.9,
+            "dong": "A동",
+            "floor": "5",
+            "itemTitle": "깨끗하고 관리 잘 된 집",
+            "zzimCount": 0,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/vp/coalition-realestate/image/1282/879db60fccccc6689e7003587ef0f6a8e83e0b5ea305a60d28efd0c31f1eed43.jpeg",
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 143765
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 18417799,
+            "tranType": "trade",
+            "areaDanjiId": 80414,
+            "areaDanjiName": "대치더클래스",
+            "danjiRoomTypeId": 432377,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 220000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "92C",
+                "p": "28C"
+            },
+            "sizeContractM2": 92.832,
+            "sizeM2": 80.478,
+            "dong": "101동",
+            "floor": "6",
+            "itemTitle": "세입자 안고 신축 매매, 학군 우수",
+            "zzimCount": 0,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "",
+            "isFloorPlanThumbnail": true,
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 142380
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 6445537,
+            "tranType": "charter",
+            "areaDanjiId": 10002,
+            "areaDanjiName": "테헤란로대우아이빌",
+            "danjiRoomTypeId": 165976,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 33000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "47A",
+                "p": "14A"
+            },
+            "sizeContractM2": 47.38,
+            "sizeM2": 35.51,
+            "dong": "1동",
+            "floor": "9",
+            "itemTitle": "내부가 깨끗한 우리집",
+            "zzimCount": 25,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/ic/floorplan/10002/165976/4121a88cfe6f40b3a9a050ec9405dd80.png",
+            "isFloorPlanThumbnail": true,
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 128116
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 12062757,
+            "tranType": "rental",
+            "areaDanjiId": 14795,
+            "areaDanjiName": "대치아이파크",
+            "danjiRoomTypeId": 13357,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 140000,
+            "rentMin": 240,
+            "roomTypeTitle": {
+                "m2": "154",
+                "p": "47"
+            },
+            "sizeContractM2": 154.27,
+            "sizeM2": 119.58,
+            "dong": "104동",
+            "floor": "6",
+            "itemTitle": "베란다 기본형으로 활용 가능한 집",
+            "zzimCount": 3,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/ic/floorplan/14795/13357/7b8f9a982224477da2c252455c17cad0.png",
+            "isFloorPlanThumbnail": true,
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 103880
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 12767191,
+            "tranType": "trade",
+            "areaDanjiId": 11209,
+            "areaDanjiName": "아름빌",
+            "danjiRoomTypeId": 188290,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 59000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "73",
+                "p": "22"
+            },
+            "sizeContractM2": 73.66,
+            "sizeM2": 48.71,
+            "dong": "1동",
+            "floor": "11",
+            "itemTitle": "지하철 2호선 선릉역 도보2분",
+            "zzimCount": 43,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/vp/coalition-realestate/image/1262/26a6f998977581aabf438c382e327b47a23d3c87fe01e07d4e7aa260f17ba324.jpeg",
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 102818
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        },
+        {
+            "areaHoId": 12767222,
+            "tranType": "trade",
+            "areaDanjiId": 11209,
+            "areaDanjiName": "아름빌",
+            "danjiRoomTypeId": 188287,
+            "local2": "강남구",
+            "local3": "대치동",
+            "isPriceRange": false,
+            "depositMin": 29000,
+            "rentMin": 0,
+            "roomTypeTitle": {
+                "m2": "45",
+                "p": "14"
+            },
+            "sizeContractM2": 45.97,
+            "sizeM2": 30.46,
+            "dong": "1동",
+            "floor": "8",
+            "itemTitle": "베란다 기본형으로 활용 가능한 집",
+            "zzimCount": 39,
+            "isZzim": false,
+            "isActualItemChecked": true,
+            "thumbnailUrl": "https://ic.zigbang.com/ic/floorplan/11209/188287/43a9ae20b4b5d365b45c5dedc1704fd020f4bb04.jpg",
+            "isFloorPlanThumbnail": true,
+            "itemCount": 1,
+            "itemIdList": [
+                {
+                    "itemSource": "coalition",
+                    "itemId": 98906
+                }
+            ],
+            "agentThumbnailUrls": [
+                "https://ic.zigbang.com/vp/coalition-realestate/user/profile/ho/1368/b225322fd57c80f1f56527ce13640df66315319a32b7ce30a728732c35ab2984.png"
+            ]
+        }
+    ],
+    "local1": "서울특별시",
+    "local2": "강남구",
+    "local3": "대치동",
+    "step": "3",
+    "lat": 37.4932421506,
+    "lng": 127.056693501
+}
