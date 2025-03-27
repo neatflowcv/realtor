@@ -8,35 +8,17 @@ const (
 	TransactionKindRent   TransactionKind = "rent"   // 임대
 )
 
-type SourceKind string
-
-const (
-	SourceKindZigbang SourceKind = "zigbang"
-)
-
-type RealtySource struct {
-	kind SourceKind
-	id   string
-}
-
-func NewRealtySource(kind SourceKind, id string) *RealtySource {
-	return &RealtySource{
-		kind: kind,
-		id:   id,
-	}
-}
-
 type Realty struct {
-	source      *RealtySource
-	transaction TransactionKind
+	source         *RealtySource
+	transaction    TransactionKind
+	deposit        int          // 만원 단위
+	rent           int          // 만원 단위, 비어있을 수 있음
+	maintenanceFee int          // 만원 단위, 비어있을 수 있음
+	area           *Area        // 비어있을 수 있음
+	address        string       // 비어있을 수 있음
+	coordinates    *Coordinates // 비어있을 수 있음
 }
 
-func NewRealty(source *RealtySource, transaction TransactionKind) *Realty {
-	return &Realty{
-		source:      source,
-		transaction: transaction,
-	}
-}
 
 func (r *Realty) SourceID() string {
 	return r.source.id
@@ -48,4 +30,20 @@ func (r *Realty) TransactionKind() TransactionKind {
 
 func (r *Realty) SourceKind() SourceKind {
 	return r.source.kind
+}
+
+func (r *Realty) Deposit() int {
+	return r.deposit
+}
+
+func (r *Realty) Rent() int {
+	return r.rent
+}
+
+func (r *Realty) TotalArea() float64 {
+	return r.area.total
+}
+
+func (r *Realty) NetArea() float64 {
+	return r.area.net
 }

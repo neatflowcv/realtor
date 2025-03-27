@@ -2,6 +2,7 @@ package core
 
 import (
 	"context"
+	"fmt"
 	"strconv"
 
 	"github.com/neatflowcv/realtor/internal/pkg/domain"
@@ -34,8 +35,24 @@ func (r *Repository) ListRealties() ([]*domain.Realty, error) {
 	for _, item := range list.List {
 		id := strconv.FormatUint(uint64(item.AreaHoID), 10) //nolint:gosec
 		source := domain.NewRealtySource(domain.SourceKindZigbang, id)
-		realty := domain.NewRealty(source, domain.TransactionKindTrade)
-		realties = append(realties, realty)
+		area := domain.NewArea(item.SizeContractM2, item.SizeM2)
+		var transactionKind domain.TransactionKind
+		switch item.TranType {
+		case "trade":
+			transactionKind = domain.TransactionKindTrade
+		case "charter":
+			transactionKind = domain.TransactionKindJeonse
+		case "rental":
+			transactionKind = domain.TransactionKindRent
+		default:
+			panic(fmt.Sprintf("unknown transaction type: %s", item.TranType))
+		}
+		builder := domain.NewRealtyBuilder(source, transactionKind).
+			Deposit(item.DepositMin).
+			Rent(item.RentMin).
+			Area(area)
+
+		realties = append(realties, builder.Build())
 	}
 
 	return realties, nil
