@@ -27,10 +27,14 @@ func main() {
 	for _, realty := range realties {
 		_, err := fmt.Fprintf(
 			writer,
-			"source: %s(%s), transaction: %s\n",
+			"source: %s(%s), transaction: %s, deposit: %d, rent: %d, total area: %.2f, net area: %.2f\n",
 			realty.SourceKind(),
 			realty.SourceID(),
 			realty.TransactionKind(),
+			realty.Deposit(),
+			realty.Rent(),
+			realty.TotalArea(),
+			realty.NetArea(),
 		)
 		if err != nil {
 			log.Printf("failed to write realty: %v", err)
