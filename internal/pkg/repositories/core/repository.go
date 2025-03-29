@@ -3,6 +3,7 @@ package core
 import (
 	"context"
 	"fmt"
+	"log"
 	"strconv"
 
 	"github.com/neatflowcv/realtor/internal/pkg/domain"
@@ -22,17 +23,40 @@ func NewRepository() *Repository {
 	}
 }
 
-func (r *Repository) ListRealties() ([]*domain.Realty, error) {
+func (r *Repository) ListRealties(ctx context.Context, opts ...repository.Option) ([]*domain.Realty, error) {
+	var options repository.Options
+	for _, opt := range opts {
+		opt(&options)
+	}
+
 	codes := r.client.ListCodes()
 
-	// TODO: code를 순회해야 한다.
-	list, err := r.client.GetCatalogList(context.Background(), codes[0].ID)
-	if err != nil {
-		return nil, err
+	var lists []*zigbang.List
+	for i, code := range codes {
+		zigbangCode := code.ID[:len(code.ID)-2]
+		log.Printf("search code %v %v (%v/%v)", zigbangCode, code.Location, i+1, len(codes))
+		page := &zigbang.Pagination{
+			Offset: 0,
+			Limit:  200,
+		}
+		out, err := r.client.GetCatalogList(ctx, zigbangCode, options.MaxDeposit, options.MaxRent, page)
+		if err != nil {
+			return nil, err
+		}
+		log.Println("count", out.Count)
+		lists = append(lists, out.List...)
+		for page.Limit == len(out.List) {
+			page.Offset += page.Limit
+			out, err = r.client.GetCatalogList(ctx, code.ID, options.MaxDeposit, options.MaxRent, page)
+			if err != nil {
+				return nil, err
+			}
+			lists = append(lists, out.List...)
+		}
 	}
 
 	var realties []*domain.Realty
-	for _, item := range list.List {
+	for _, item := range lists {
 		id := strconv.FormatUint(uint64(item.AreaHoID), 10) //nolint:gosec
 		source := domain.NewRealtySource(domain.SourceKindZigbang, id)
 		area := domain.NewArea(item.SizeContractM2, item.SizeM2)

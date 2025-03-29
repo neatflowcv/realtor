@@ -1,6 +1,7 @@
 package flow
 
 import (
+	"context"
 	"testing"
 
 	"github.com/neatflowcv/realtor/internal/pkg/repositories/core"
@@ -10,8 +11,11 @@ import (
 func TestService_ListRealties(t *testing.T) {
 	repository := core.NewRepository()
 	service := NewService(repository)
-
-	realties, err := service.ListRealties()
+	ctx := context.Background()
+	realties, err := service.ListRealties(ctx, &ListRealtiesOptions{
+		MaxDeposit: 1000,
+		MaxRent:    70,
+	})
 
 	require.NoError(t, err)
 	require.NotEmpty(t, realties)

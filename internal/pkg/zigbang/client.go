@@ -9,6 +9,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strconv"
 	"strings"
 
 	"github.com/andybalholm/brotli"
@@ -20,15 +21,22 @@ func NewClient() *Client {
 	return &Client{}
 }
 
-func (c *Client) GetCatalogList(ctx context.Context, code string) (*CatalogList, error) {
+func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uint64, maxRent uint64, page *Pagination) (*CatalogList, error) {
 	const host = "https://apis.zigbang.com"
 	values := url.Values{}
 	values.Add("tranTypeIn[0]", "trade")
 	values.Add("tranTypeIn[1]", "charter")
 	values.Add("tranTypeIn[2]", "rental")
 	values.Add("includeOfferItem", "true")
-	values.Add("offset", "0")
-	values.Add("limit", "10")
+	values.Add("offset", strconv.Itoa(page.Offset))
+	values.Add("limit", strconv.Itoa(page.Limit))
+	if maxDeposit > 0 {
+		values.Add("maxSalesDeposit", strconv.FormatUint(maxDeposit, 10))
+		values.Add("maxRentDeposit", strconv.FormatUint(maxDeposit, 10))
+	}
+	if maxRent > 0 {
+		values.Add("maxRent", strconv.FormatUint(maxRent, 10))
+	}
 	query := values.Encode()
 	url := fmt.Sprintf("%v/apt/locals/%v/item-catalogs?%v", host, code, query)
 	req, err := newRequest(ctx, url)
@@ -83,7 +91,13 @@ func (c *Client) readAll(req *http.Request) ([]byte, int, error) {
 	defer func() {
 		_ = resp.Body.Close()
 	}()
-	reader := brotli.NewReader(resp.Body)
+	encoding := resp.Header.Get("Content-Encoding")
+	var reader io.Reader
+	if encoding == "br" {
+		reader = brotli.NewReader(resp.Body)
+	} else {
+		reader = resp.Body
+	}
 	content, err := io.ReadAll(reader)
 	if err != nil {
 		return nil, 0, err
@@ -112,7 +126,7 @@ func (c *Client) ListCodes() []*Code {
 		}
 		codes = append(codes, &Code{
 			ID:       id,
-			Location: location,
+			Location: strings.TrimRight(location, "\r"),
 		})
 	}
 

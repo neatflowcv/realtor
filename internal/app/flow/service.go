@@ -1,6 +1,8 @@
 package flow
 
 import (
+	"context"
+
 	"github.com/neatflowcv/realtor/internal/pkg/domain"
 	"github.com/neatflowcv/realtor/internal/pkg/repository"
 )
@@ -15,6 +17,11 @@ func NewService(repository repository.Repository) *Service {
 	}
 }
 
-func (s *Service) ListRealties() ([]*domain.Realty, error) {
-	return s.repository.ListRealties()
+type ListRealtiesOptions struct {
+	MaxDeposit uint64
+	MaxRent    uint64
+}
+
+func (s *Service) ListRealties(ctx context.Context, options *ListRealtiesOptions) ([]*domain.Realty, error) {
+	return s.repository.ListRealties(ctx, repository.WithMaxDeposit(options.MaxDeposit), repository.WithMaxRent(options.MaxRent))
 }

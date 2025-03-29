@@ -5,7 +5,7 @@ package zigbang
 type CatalogList struct {
 	LocalCode string  `json:"localCode,omitempty"`
 	Count     int     `json:"count,omitempty"`
-	List      []List  `json:"list,omitempty"`
+	List      []*List `json:"list,omitempty"`
 	Local1    string  `json:"local1,omitempty"`
 	Local2    string  `json:"local2,omitempty"`
 	Local3    string  `json:"local3,omitempty"`
