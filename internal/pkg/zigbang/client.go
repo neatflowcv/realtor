@@ -91,7 +91,13 @@ func (c *Client) readAll(req *http.Request) ([]byte, int, error) {
 	defer func() {
 		_ = resp.Body.Close()
 	}()
-	reader := brotli.NewReader(resp.Body)
+	encoding := resp.Header.Get("Content-Encoding")
+	var reader io.Reader
+	if encoding == "br" {
+		reader = brotli.NewReader(resp.Body)
+	} else {
+		reader = resp.Body
+	}
 	content, err := io.ReadAll(reader)
 	if err != nil {
 		return nil, 0, err
