@@ -34,7 +34,7 @@ func (r *Repository) ListRealties(opts ...repository.Option) ([]*domain.Realty, 
 	var lists []*zigbang.List
 	for i, code := range codes {
 		log.Printf("search code %v %v (%v/%v)", code.ID, code.Location, i+1, len(codes))
-		list, err := r.client.GetCatalogList(context.Background(), code.ID, options.MaxDeposit)
+		list, err := r.client.GetCatalogList(context.Background(), code.ID, options.MaxDeposit, options.MaxRent)
 		if err != nil {
 			return nil, err
 		}

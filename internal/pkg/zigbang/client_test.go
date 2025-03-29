@@ -13,7 +13,7 @@ func TestClient_GetCatalogList(t *testing.T) {
 	client := zigbang.NewClient()
 	ctx := context.Background()
 
-	catalog, err := client.GetCatalogList(ctx, "11680106", 0)
+	catalog, err := client.GetCatalogList(ctx, "11680106", 0, 0)
 
 	require.NoError(t, err)
 	require.NotNil(t, catalog)

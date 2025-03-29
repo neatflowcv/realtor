@@ -21,7 +21,7 @@ func NewClient() *Client {
 	return &Client{}
 }
 
-func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uint64) (*CatalogList, error) {
+func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uint64, maxRent uint64) (*CatalogList, error) {
 	const host = "https://apis.zigbang.com"
 	values := url.Values{}
 	values.Add("tranTypeIn[0]", "trade")
@@ -33,6 +33,9 @@ func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uin
 	if maxDeposit > 0 {
 		values.Add("maxSalesDeposit", strconv.FormatUint(maxDeposit, 10))
 		values.Add("maxRentDeposit", strconv.FormatUint(maxDeposit, 10))
+	}
+	if maxRent > 0 {
+		values.Add("maxRent", strconv.FormatUint(maxRent, 10))
 	}
 	query := values.Encode()
 	url := fmt.Sprintf("%v/apt/locals/%v/item-catalogs?%v", host, code, query)

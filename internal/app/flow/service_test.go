@@ -11,7 +11,10 @@ func TestService_ListRealties(t *testing.T) {
 	repository := core.NewRepository()
 	service := NewService(repository)
 
-	realties, err := service.ListRealties()
+	realties, err := service.ListRealties(&ListRealtiesOptions{
+		MaxDeposit: 1000,
+		MaxRent:    70,
+	})
 
 	require.NoError(t, err)
 	require.NotEmpty(t, realties)
