@@ -13,7 +13,7 @@ import (
 func main() {
 	repo := core.NewRepository()
 	service := flow.NewService(repo)
-	realties, err := service.ListRealties()
+	realties, err := service.ListRealties(flow.WithMaxDeposit(1000))
 	if err != nil {
 		log.Fatalf("failed to list realties: %v", err)
 	}

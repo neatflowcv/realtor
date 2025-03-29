@@ -9,6 +9,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strconv"
 	"strings"
 
 	"github.com/andybalholm/brotli"
@@ -20,7 +21,7 @@ func NewClient() *Client {
 	return &Client{}
 }
 
-func (c *Client) GetCatalogList(ctx context.Context, code string) (*CatalogList, error) {
+func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uint64) (*CatalogList, error) {
 	const host = "https://apis.zigbang.com"
 	values := url.Values{}
 	values.Add("tranTypeIn[0]", "trade")
@@ -29,6 +30,10 @@ func (c *Client) GetCatalogList(ctx context.Context, code string) (*CatalogList,
 	values.Add("includeOfferItem", "true")
 	values.Add("offset", "0")
 	values.Add("limit", "10")
+	if maxDeposit > 0 {
+		values.Add("maxSalesDeposit", strconv.FormatUint(maxDeposit, 10))
+		values.Add("maxRentDeposit", strconv.FormatUint(maxDeposit, 10))
+	}
 	query := values.Encode()
 	url := fmt.Sprintf("%v/apt/locals/%v/item-catalogs?%v", host, code, query)
 	req, err := newRequest(ctx, url)

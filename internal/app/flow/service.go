@@ -15,6 +15,22 @@ func NewService(repository repository.Repository) *Service {
 	}
 }
 
-func (s *Service) ListRealties() ([]*domain.Realty, error) {
-	return s.repository.ListRealties()
+type ListRealtiesOptions struct {
+	MaxDeposit uint64
+}
+
+type ListRealtiesOption func(*ListRealtiesOptions)
+
+func WithMaxDeposit(maxDeposit uint64) ListRealtiesOption {
+	return func(o *ListRealtiesOptions) {
+		o.MaxDeposit = maxDeposit
+	}
+}
+
+func (s *Service) ListRealties(opts ...ListRealtiesOption) ([]*domain.Realty, error) {
+	var options ListRealtiesOptions
+	for _, opt := range opts {
+		opt(&options)
+	}
+	return s.repository.ListRealties(repository.WithMaxDeposit(options.MaxDeposit))
 }

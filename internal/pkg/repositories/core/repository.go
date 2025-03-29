@@ -3,6 +3,7 @@ package core
 import (
 	"context"
 	"fmt"
+	"log"
 	"strconv"
 
 	"github.com/neatflowcv/realtor/internal/pkg/domain"
@@ -22,17 +23,26 @@ func NewRepository() *Repository {
 	}
 }
 
-func (r *Repository) ListRealties() ([]*domain.Realty, error) {
+func (r *Repository) ListRealties(opts ...repository.Option) ([]*domain.Realty, error) {
+	var options repository.Options
+	for _, opt := range opts {
+		opt(&options)
+	}
+
 	codes := r.client.ListCodes()
 
-	// TODO: code를 순회해야 한다.
-	list, err := r.client.GetCatalogList(context.Background(), codes[0].ID)
-	if err != nil {
-		return nil, err
+	var lists []*zigbang.List
+	for i, code := range codes {
+		log.Printf("search code %v %v (%v/%v)", code.ID, code.Location, i+1, len(codes))
+		list, err := r.client.GetCatalogList(context.Background(), code.ID, options.MaxDeposit)
+		if err != nil {
+			return nil, err
+		}
+		lists = append(lists, list.List...)
 	}
 
 	var realties []*domain.Realty
-	for _, item := range list.List {
+	for _, item := range lists {
 		id := strconv.FormatUint(uint64(item.AreaHoID), 10) //nolint:gosec
 		source := domain.NewRealtySource(domain.SourceKindZigbang, id)
 		area := domain.NewArea(item.SizeContractM2, item.SizeM2)
