@@ -117,7 +117,7 @@ func (c *Client) ListCodes() []*Code {
 		}
 		codes = append(codes, &Code{
 			ID:       id,
-			Location: location,
+			Location: strings.TrimRight(location, "\r"),
 		})
 	}
 
