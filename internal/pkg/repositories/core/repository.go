@@ -33,12 +33,26 @@ func (r *Repository) ListRealties(ctx context.Context, opts ...repository.Option
 
 	var lists []*zigbang.List
 	for i, code := range codes {
-		log.Printf("search code %v %v (%v/%v)", code.ID, code.Location, i+1, len(codes))
-		list, err := r.client.GetCatalogList(ctx, code.ID, options.MaxDeposit, options.MaxRent)
+		zigbangCode := code.ID[:len(code.ID)-2]
+		log.Printf("search code %v %v (%v/%v)", zigbangCode, code.Location, i+1, len(codes))
+		page := &zigbang.Pagination{
+			Offset: 0,
+			Limit:  200,
+		}
+		out, err := r.client.GetCatalogList(ctx, zigbangCode, options.MaxDeposit, options.MaxRent, page)
 		if err != nil {
 			return nil, err
 		}
-		lists = append(lists, list.List...)
+		log.Println("count", out.Count)
+		lists = append(lists, out.List...)
+		for page.Limit == len(out.List) {
+			page.Offset += page.Limit
+			out, err = r.client.GetCatalogList(ctx, code.ID, options.MaxDeposit, options.MaxRent, page)
+			if err != nil {
+				return nil, err
+			}
+			lists = append(lists, out.List...)
+		}
 	}
 
 	var realties []*domain.Realty

@@ -21,15 +21,15 @@ func NewClient() *Client {
 	return &Client{}
 }
 
-func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uint64, maxRent uint64) (*CatalogList, error) {
+func (c *Client) GetCatalogList(ctx context.Context, code string, maxDeposit uint64, maxRent uint64, page *Pagination) (*CatalogList, error) {
 	const host = "https://apis.zigbang.com"
 	values := url.Values{}
 	values.Add("tranTypeIn[0]", "trade")
 	values.Add("tranTypeIn[1]", "charter")
 	values.Add("tranTypeIn[2]", "rental")
 	values.Add("includeOfferItem", "true")
-	values.Add("offset", "0")
-	values.Add("limit", "10")
+	values.Add("offset", strconv.Itoa(page.Offset))
+	values.Add("limit", strconv.Itoa(page.Limit))
 	if maxDeposit > 0 {
 		values.Add("maxSalesDeposit", strconv.FormatUint(maxDeposit, 10))
 		values.Add("maxRentDeposit", strconv.FormatUint(maxDeposit, 10))
