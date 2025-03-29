@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"context"
+
 	"github.com/neatflowcv/realtor/internal/pkg/domain"
 )
 
@@ -24,5 +26,5 @@ func WithMaxRent(maxRent uint64) Option {
 }
 
 type Repository interface {
-	ListRealties(opts ...Option) ([]*domain.Realty, error)
+	ListRealties(ctx context.Context, opts ...Option) ([]*domain.Realty, error)
 }

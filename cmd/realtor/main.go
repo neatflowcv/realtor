@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -13,7 +14,8 @@ import (
 func main() {
 	repo := core.NewRepository()
 	service := flow.NewService(repo)
-	realties, err := service.ListRealties(&flow.ListRealtiesOptions{
+	ctx := context.Background()
+	realties, err := service.ListRealties(ctx, &flow.ListRealtiesOptions{
 		MaxDeposit: 1000,
 		MaxRent:    70,
 	})

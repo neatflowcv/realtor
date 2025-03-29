@@ -23,7 +23,7 @@ func NewRepository() *Repository {
 	}
 }
 
-func (r *Repository) ListRealties(opts ...repository.Option) ([]*domain.Realty, error) {
+func (r *Repository) ListRealties(ctx context.Context, opts ...repository.Option) ([]*domain.Realty, error) {
 	var options repository.Options
 	for _, opt := range opts {
 		opt(&options)
